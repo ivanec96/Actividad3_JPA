@@ -77,6 +77,7 @@ public class ClienteDaoImpl extends AbstractDao implements ClienteDao {
 		return em.find(Cliente.class, atributoID);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> findAll() {
 		
