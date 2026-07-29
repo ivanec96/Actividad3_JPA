@@ -19,5 +19,5 @@ public interface ProyectoDao extends GenericoDao<Proyecto, String> {
 	
 	double prorcentageMargenBrutoProyectosTerminados();
 	
-	int diasATerminoProyectoActivo(String codigoProyecto);   // Cuantos días quedan para terminar el proyecto (diferencia entre fecha_fin_previsto y la fecha de hoy
+	int diasATerminarProyectoActivo(String codigoProyecto);   // Cuantos días quedan para terminar el proyecto (diferencia entre fecha_fin_previsto y la fecha de hoy
 }

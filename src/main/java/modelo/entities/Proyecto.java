@@ -40,8 +40,11 @@ public class Proyecto {
 	private double costeReal;
 	
 	@Column (name="estado")
-	private boolean estado;
+	private String estado;
 	
+	
+	 @ManyToOne
+	 @JoinColumn(name = "jefe_proyecto", nullable = false)
 	private Empleado jefeProyecto;
 	
 	
@@ -49,9 +52,11 @@ public class Proyecto {
 	 @JoinColumn(name = "cif", nullable = false)
 	private Cliente cliente;
 
+	 
+	 // CONSTRUCTORES
 
 	public Proyecto(String idProyecto, String descripcion, LocalDate fechaInicio, LocalDate fechaFinPrevisto,
-			LocalDate fechaFinReal, double ventaPrevista, double costesPrevisto, double costeReal, boolean estado,
+			LocalDate fechaFinReal, double ventaPrevista, double costesPrevisto, double costeReal, String estado,
 			Empleado jefeProyecto, Cliente cliente) {
 		super();
 		this.idProyecto = idProyecto;
@@ -195,11 +200,11 @@ public class Proyecto {
 		this.costeReal = costeReal;
 	}
 
-	public boolean isEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(boolean estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
@@ -217,6 +222,14 @@ public class Proyecto {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	@Override
+	public String toString() {
+		return "Proyecto [idProyecto=" + idProyecto + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio
+				+ ", fechaFinPrevisto=" + fechaFinPrevisto + ", fechaFinReal=" + fechaFinReal + ", ventaPrevista="
+				+ ventaPrevista + ", costesPrevisto=" + costesPrevisto + ", costeReal=" + costeReal + ", estado="
+				+ estado + ", jefeProyecto=" + jefeProyecto + ", cliente=" + cliente + "]";
 	}
 	
 
