@@ -1,5 +1,6 @@
 package modelo.dao;
 
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
@@ -208,7 +209,7 @@ public class ProyectoDaoImpl extends AbstractDao implements ProyectoDao{
 		Proyecto proyecto = (Proyecto) query.getSingleResult();
 		
 		// El resultado de la diff de fechas suele dar un numero de tipo long
-		long dias = ChronoUnit.DAYS.between(proyecto.getFechaInicio(), proyecto.getFechaFinPrevisto());
+		long dias = ChronoUnit.DAYS.between(proyecto.getFechaFinPrevisto(), LocalDate.now());
 		
 		return (int) dias;
 	}
