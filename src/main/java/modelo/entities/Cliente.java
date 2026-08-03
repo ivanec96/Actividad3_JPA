@@ -90,6 +90,12 @@ public class Cliente {
 	public void setNumeroEmpleados(double numeroEmpleados) {
 		this.numeroEmpleados = numeroEmpleados;
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente [cif=" + cif + ", nombre=" + nombre + ", apellidos=" + apellidos + ", domicilio=" + domicilio
+				+ ", facturacionAnual=" + facturacionAnual + ", numeroEmpleados=" + numeroEmpleados + "]";
+	}
 	
 	
 	

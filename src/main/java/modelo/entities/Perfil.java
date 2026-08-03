@@ -11,7 +11,7 @@ public class Perfil {
 
 	@Id
 	@Column (name="id_perfil")
-	private String idPerfil;
+	private int idPerfil;
 	
 	@Column (name="nombre")
 	private String nombre;
@@ -19,7 +19,7 @@ public class Perfil {
 	@Column (name="tasa_standard")
 	private double tasaStandard;
 
-	public Perfil(String idPerfil, String nombre, double tasaStandard) {
+	public Perfil(int idPerfil, String nombre, double tasaStandard) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nombre = nombre;
@@ -30,11 +30,11 @@ public class Perfil {
 		super();
 	}
 
-	public String getIdPerfil() {
+	public int getIdPerfil() {
 		return idPerfil;
 	}
 
-	public void setIdPerfil(String idPerfil) {
+	public void setIdPerfil(int idPerfil) {
 		this.idPerfil = idPerfil;
 	}
 
@@ -52,6 +52,11 @@ public class Perfil {
 
 	public void setTasaStandard(double tasaStandard) {
 		this.tasaStandard = tasaStandard;
+	}
+
+	@Override
+	public String toString() {
+		return "Perfil [idPerfil=" + idPerfil + ", nombre=" + nombre + ", tasaStandard=" + tasaStandard + "]";
 	}
 	
 	

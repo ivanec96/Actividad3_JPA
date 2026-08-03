@@ -89,7 +89,7 @@ public class EmpleadoDaoImpl extends AbstractDao implements EmpleadoDao {
 		
 		jpql = "from Empleado e where e.departamento.idDepartamento = :depa";
 		
-		query = em.createNamedQuery(jpql);
+		query = em.createQuery(jpql);
 		
 		// Inyectamos el valor del argumento 'idDepar' en el parámetro ':depa'
 		query.setParameter("depa", idDepar);
@@ -124,7 +124,7 @@ public class EmpleadoDaoImpl extends AbstractDao implements EmpleadoDao {
 
 
 
-	@SuppressWarnings("unused")
+
 	@Override
 	public double salarioTotal() {
 		
@@ -144,13 +144,13 @@ public class EmpleadoDaoImpl extends AbstractDao implements EmpleadoDao {
 
 
 
-	@SuppressWarnings("unused")
+
 	@Override
 	public double salarioTotal(int idDepar) {
 		
 		jpql = "select sum(e.salario) from Empleado e where e.departamento.idDepartamento = :depa";
 		
-		query = em.createNamedQuery(jpql);
+		query = em.createQuery(jpql);
 		
 		// Inyectamos el valor del argumento 'idDepar' en el parámetro ':depa'
 		query.setParameter("depa", idDepar);

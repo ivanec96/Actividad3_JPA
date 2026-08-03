@@ -201,7 +201,7 @@ public class ProyectoDaoImpl extends AbstractDao implements ProyectoDao{
 	@Override
 	public int diasATerminarProyectoActivo(String codigoProyecto) {
 		
-		jpql = "from Proyecto p where p.estado = 'Activo' and p.idProyecto = :codigo";
+		jpql = "from Proyecto p where p.estado = 'ACTIVO' and p.idProyecto = :codigo";
 		
 		query = em.createQuery(jpql);
 		query.setParameter("codigo", codigoProyecto);
