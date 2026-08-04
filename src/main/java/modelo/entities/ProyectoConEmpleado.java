@@ -15,6 +15,8 @@ import jakarta.persistence.Table;
 @Table (name="proyecto_con_empleados")
 public class ProyectoConEmpleado {
 	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name="numero_orden")
@@ -65,6 +67,10 @@ public class ProyectoConEmpleado {
 		super();
 	}
 
+	
+	
+	
+	
 	public int getNumeroOrden() {
 		return numeroOrden;
 	}
@@ -103,6 +109,20 @@ public class ProyectoConEmpleado {
 
 	public void setFechaIncorporacion(LocalDate fechaIncorporacion) {
 		this.fechaIncorporacion = fechaIncorporacion;
+	}
+
+
+
+
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "ProyectoConEmpleado [numeroOrden=" + numeroOrden + ", proyecto=" + proyecto + ", empleado=" + empleado
+				+ ", horasAsignadas=" + horasAsignadas + ", fechaIncorporacion=" + fechaIncorporacion + "]";
 	}
 	
 	

@@ -90,7 +90,7 @@ public class ProyectoEmpleadoImpl extends AbstractDao implements ProyectoEmplead
 	@Override
 	public List<Empleado> empleadosByProyecto(String codigoProyecto) {
 		
-		jpql = "from ProyectoConEmpleado pe where pe.proyecto.idProyecto = :codigo";
+		jpql = "select pe.empleado from ProyectoConEmpleado pe where pe.proyecto.idProyecto = :codigo";
 		
 		query = em.createQuery(jpql);
 		
@@ -102,7 +102,36 @@ public class ProyectoEmpleadoImpl extends AbstractDao implements ProyectoEmplead
 	@Override
 	public int asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados) {
 		
-		return 0;
+		int asignaciones = 0;
+		
+		if (empleados == null || empleados.isEmpty()) {
+			
+			return 0;
+		}
+		
+		try {
+			for (ProyectoConEmpleado ele : empleados) {
+				
+				tx.begin();
+					em.persist(ele);
+				asignaciones++;
+				
+			}
+			
+			tx.commit();
+			return 1;
+			
+		} catch (Exception e) {
+			
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			
+			System.out.println("Error: " + e.getMessage());
+			// return -1;
+			
+		}
+		return asignaciones;
 	}
 
 	@Override
@@ -119,7 +148,7 @@ public class ProyectoEmpleadoImpl extends AbstractDao implements ProyectoEmplead
 		
 		// COMPROBAMOS QUE ESE OBJETO NO SEA NULL. ASI VERIFICAMOS QUE SI ES UN NUMERO
 		
-		if (total != null) {
+		if (total == null) {
 			
 			return 0;
 		}
@@ -138,7 +167,7 @@ public class ProyectoEmpleadoImpl extends AbstractDao implements ProyectoEmplead
 		
 		Object total = query.getSingleResult();
 		
-		if (total != null) {
+		if (total == null) {
 			
 			return 0;
 		}
