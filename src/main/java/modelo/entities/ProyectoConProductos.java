@@ -84,6 +84,12 @@ public class ProyectoConProductos {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
+
+	@Override
+	public String toString() {
+		return "ProyectoConProductos [numOrden=" + numOrden + ", proyecto=" + proyecto + ", producto=" + producto
+				+ ", precioAsignado=" + precioAsignado + ", cantidad=" + cantidad + "]";
+	}
 	
 	
 	
