@@ -72,10 +72,11 @@ public class ImprimirGastos {
         System.out.println("\nDETALLE DE RECURSOS EMPLEADOS:");
         System.out.println("LISTA EMPLEADOS");
         
-        int totalHoras = 0;
-        double totalPrecioEmpleados = 0.0;
+       
+        double totalHoras = 0;
+        double totalPrecioEmpleados = 0;
         
-        for (ProyectoConEmpleado empProy : pedao.empleadosByProyecto(p.getIdProyecto())) {
+        for (ProyectoConEmpleado empProy : pedao.asignarEmpleadosByProyecto(p.getIdProyecto())) {
             
             Empleado emp = empProy.getEmpleado();
             int horas = empProy.getHorasAsignadas();
@@ -89,6 +90,7 @@ public class ImprimirGastos {
             
             totalHoras += horas;
             totalPrecioEmpleados += importe;
+            
         }
         
         System.out.println("Total Horas: " + totalHoras + " Total Precio: " + totalPrecioEmpleados);

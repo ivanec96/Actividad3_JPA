@@ -176,4 +176,15 @@ public class ProyectoEmpleadoImpl extends AbstractDao implements ProyectoEmplead
 		return ((Number)total).doubleValue();
 	}
 
+	@Override
+	public List<ProyectoConEmpleado> asignarEmpleadosByProyecto(String codigoProyecto) {
+		
+		jpql = "from ProyectoConEmpleado pe where pe.proyecto.idProyecto =  :codigo";
+		
+		query = em.createQuery(jpql);
+		query.setParameter("codigo", codigoProyecto);
+		
+		return query.getResultList();
+	}
+
 }
